@@ -1,0 +1,136 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+}
+
+p {
+	font-size: 20px;
+}
+
+.display {
+	width: 1100px;
+	height: 640px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	border: 3px solid #2DB84B;
+}
+
+.selected {
+	display: flex;
+	justify-content: space-around;
+	background-color: #2DB84B;
+	margin-bottom: 10px;
+}
+
+.selected select {
+	width: 200px;
+	padding: 10px;
+	font-size: 15px;
+	margin: 10px;
+	background-color: #fff;
+	border-radius: 10px;
+	text-align: center;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.selected .logoTip {
+	display: flex;
+	align-items: center;
+	color: #fff;
+}
+
+.selected .logoTip span {
+	font-size: 40px;
+	font-weight: bold;
+	margin-left: 10px;
+}
+
+.texted {
+	display: flex;
+	height: 550px;
+}
+
+.left {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 540px;
+	height: 554px;
+	background-color: whitesmoke;
+	overflow: auto;
+	padding-left: 20px;
+	margin-left: 10px;
+	border: 2px solid #838483;
+	border-radius: 5px;
+}
+
+.right {
+	width: 540px;
+	height: 550px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.right .code {
+	height: 300px;
+	border: 1px solid #838483;
+	border-radius: 5px;
+}
+
+.right .tester {
+	height: 200px;
+	overflow: auto;
+	padding-left: 10px;
+	background-color: whitesmoke;
+	border: 2px solid #838483;
+	border-radius: 5px;
+}
+
+.right  .code textarea{
+	width: 100%;
+	height: 298px;
+	padding: 15px;
+	overflow: auto;
+}
+
+.right .btnCheck{
+	display: flex;
+	justify-content: flex-end;
+}
+
+.right .btnCheck button{
+	width: 100px;
+	padding: 5px;
+	font-size: 20px;
+	border-radius: 20px;
+	margin: 10px;
+	background-color: #2DB84B;
+	color: #fff;
+	font-weight: bold;
+	border: none;
+}
+
+.right .btnCheck button:hover{
+	cursor: pointer;
+	background-color: #46CE73;
+}
+
+.testResult {
+	display: flex;
+	align-items: center;
+}
+
+.testResult img {
+	width: 30px;
+	height: 30px;
+	margin-right: 10px;
+	border-radius: 50%;
+}
