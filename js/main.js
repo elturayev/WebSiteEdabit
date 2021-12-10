@@ -19,8 +19,6 @@ for (let i of tasks){
 	select.append(option)
 }
 
-
-
 select.addEventListener('change',()=>{
 	left.innerHTML = null
 	tester.innerHTML = null
@@ -35,58 +33,50 @@ select.addEventListener('change',()=>{
 })
 
 check.onclick = ()=>{
-	tester.innerHTML = null
-	if (select.value == "0") return;
-	let code = ` ${textarea.value}`
-	let scopL = 0
-	let scopR = 0
-	let bracketsL = 0
-	let bracketsR = 0
-	for (let i of code){
-		if (i == "{") scopL +=1
-		else if (i == "}") scopR += 1
-		else if (i == "(") bracketsL += 1
-		else if (i == ")") bracketsR += 1
+	try {
+		tester.innerHTML = null
+		if (select.value == "0") return;
+		let code = ` ${textarea.value}`
+		let scopL = 0
+		let scopR = 0
+		let bracketsL = 0
+		let bracketsR = 0
+		for (let i of code){
+			if (i == "{") scopL +=1
+			else if (i == "}") scopR += 1
+			else if (i == "(") bracketsL += 1
+			else if (i == ")") bracketsR += 1
+		}
+
+		for (let i in val.testingArg){
+			let res = new Function(code + `return ${val.nameFun}(${val.testingArg[i]})`)
+			if (res() == (val.testingAns)[i]){
+				let [div, icon, p]= createElements("div","img","p")
+				div.className = "testResult"
+				icon.src = "./img/iconComplainte.png"
+				p.textContent = `Test Passed: Value == ${val.testingAns[i]}`
+				div.append(icon,p)
+				tester.append(div)
+			}
+
+			else {
+				let [div, icon, p]= createElements("div","img","p")
+				div.className = "testResult"
+				icon.src = "./img/iconFailed.png"
+				p.textContent = `FAILED: Answer failed!; ---  Answer: ${val.testingAns[i]}`
+				div.append(icon,p)
+				tester.append(div)
+			}
+		}
 	}
-	if ((!code.includes("function")) || (scopR != scopL) || ( bracketsR != bracketsL) || (!code.includes("return"))){
+	catch(error){
 		let [div, icon, p]= createElements("div","img","p")
 		div.className = "testResult"
 		icon.src = "./img/iconFailed.png"
-		p.textContent = `FAILED: SyntaxError: Check if there is an error in the function!`
+		p.textContent = error
 		div.append(icon,p)
 		tester.append(div)
 		return;
-	}
-	if  ((!code.includes(val.nameFun))){
-		let [div, icon, p]= createElements("div","img","p")
-		div.className = "testResult"
-		icon.src = "./img/iconFailed.png"
-		p.textContent = `FAILED: ReferenceError: ${val.nameFun} is not defined!!!`
-		div.append(icon,p)
-		tester.append(div)
-		return;
-	}
-
-	for (let i in val.testingArg){
-		let res = new Function(code + `return ${val.nameFun}(${val.testingArg[i]})`)
-		
-		if (res() == (val.testingAns)[i]){
-			let [div, icon, p]= createElements("div","img","p")
-			div.className = "testResult"
-			icon.src = "./img/iconComplainte.png"
-			p.textContent = `Test Passed: Value == ${val.testingAns[i]}`
-			div.append(icon,p)
-			tester.append(div)
-		}
-
-		else {
-			let [div, icon, p]= createElements("div","img","p")
-			div.className = "testResult"
-			icon.src = "./img/iconFailed.png"
-			p.textContent = `FAILED: Answer failed!; ---  Answer: ${val.testingAns[i]}`
-			div.append(icon,p)
-			tester.append(div)
-		}
 	}
 }
 
