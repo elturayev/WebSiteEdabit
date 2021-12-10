@@ -6,7 +6,7 @@ let tasks = [
 	 	textTask: "Ikki xonali sonni qabul qiladigan va bu mumkin boʻlgan ikkita raqam almashinuvining eng kattasi ekanligini aniqlaydigan funksiya yozing.Agar 27 bizning kiritganimiz bo'lsa, biz false qiymatini qaytarishimiz kerak, chunki raqamlarni almashtirish bizga 72 va 72 > 27 ni beradi. Boshqa tomondan, 43 ni almashtirish bizga 34 va 43 > 34 ni beradi.",
 	 	img: "1masala.png" ,
 	 	testingArg: ["27","14","43","53","99"],
-	 	testingAns:["false","false","true","true","true"]
+	 	testingAns:[false,false,true,true,true]
 	 },
 	{
 		taskNumber: 2,
@@ -23,7 +23,7 @@ let tasks = [
 	 	textTask: "n butun sonni oladigan va 1 dan n gacha sonlarni ko‘paytirish jadvalini n-kartagacha qaytaruvchi funksiya yarating.", 
 	 	img: "3masala.png",
 	 	testingArg: ["1","2","3","4","5"],
-	 	testingAns: ["[[1]]","[[1,2],[2,4]]","[[1,2,3],[2,4,6],[3,6,9]]","[[1,2,3,4],[2,4,6,8],[3,6,9,12],[4,8,12,16]]","[[1,2,3,4,5],[2,4,6,8,10],[3,6,9,12,15],[4,8,12,16,20],[5,10,15,20,25]]"]
+	 	testingAns: ["1","1,2,2,4","1,2,3,2,4,6,3,6,9","1,2,3,4,2,4,6,8,3,6,9,12,4,8,12,16","1,2,3,4,5,2,4,6,8,10,3,6,9,12,15,4,8,12,16,20,5,10,15,20,25"]
 
 	 },
 	{
@@ -31,7 +31,7 @@ let tasks = [
 	 	nameFun: "num_of_digits", 
 	 	textTask: "Berilgan butun sondagi raqamlar miqdoriga mos keladigan butun sonni qaytaradigan funksiya yarating.",
 	 	img: "4masala.png",
-	 	testingArg: ["12/134","-34","0","453234354334","42812324"],
+	 	testingArg: ["12134","-34","0","453234354334","42812324"],
 	 	testingAns: ["5","2","1","12","8"]
 	 },
 ]
